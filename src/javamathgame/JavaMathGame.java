@@ -23,7 +23,7 @@ public class JavaMathGame {
             win = false;
             lost = false;
             
-            //Player.Auth();
+            Player.Auth();
             
             System.out.println("Wählen Sie den Spielmodus:");
             System.out.println("1.) Klassisch");
