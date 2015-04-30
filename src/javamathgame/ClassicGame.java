@@ -1,17 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javamathgame;
-
 /**
- *
- * @author muster
+ * Version: 1.0
+ * Autor: Natter Jeremias | Monegat Alessio | Würzer Daniel 
  */
-public class ClassicGame extends Game {
-
-    public ClassicGame() {
+public class ClassicGame extends Game
+{
+    public ClassicGame()
+    {
         playNumber = 1;
         maxNumber = 1000;
         stepCount = 0;
@@ -19,29 +14,38 @@ public class ClassicGame extends Game {
         difficulty = "normal";
         valid = false;   
     }
-    public String validate() { // Function to See if Player has lost
+    
+    public String validate()    // Function to See if Player has lost
+    {
         String valid = "default";
-        if (playNumber == targetNumber) {
+        if (playNumber == targetNumber)
+        {
             valid = "won";
         }
-        if (stepCount > maxSteps) {
+        
+        if (stepCount > maxSteps)
+        {
             valid = "lost";
         }
         return valid;
     }
-    public void startgame (){
+    
+    public void startgame()
+    {
         playNumber = 1;
         stepCount = 0;
         Reader r = new Reader();
         valid = false;
-        while (valid == false) {
+        while (valid == false)
+        {
             System.out.println("Wählen Sie den Schwierigkeitsgrad:");
             System.out.println("1: Easy");
             System.out.println("2: Normal");
             System.out.println("3: Hard");
             System.out.println("4: Impossible");
             input = r.readString();
-            switch (input) {
+            switch (input)
+            {
                 case "1":
                     difficulty = "easy";
                     Tools.clearterminal();
@@ -86,8 +90,5 @@ public class ClassicGame extends Game {
         statusoutput();
         Tools.sleep(2000);
         System.out.println("");
-    }
-    
-   
-    
+    }   
 }

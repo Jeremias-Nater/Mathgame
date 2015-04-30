@@ -1,37 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javamathgame;
-
 /**
- *
- * @author MIAS
+ * Version: 1.0
+ * Autor: Natter Jeremias | Monegat Alessio | Würzer Daniel 
  */
-
-
-public class JavaMathGame {
-    
-    public static void main(String[] args){
-        
+public class JavaMathGame
+{
+    public static void main(String[] args)
+    {        
         boolean quit = false;
         boolean win = false;
         boolean lost = false;
-        while (!quit) {
-            
+        while (!quit)
+        {
             win = false;
             lost = false;
-            
+
             Player.Auth();
-            
+
             System.out.println("Wählen Sie den Spielmodus:");
             System.out.println("1.) Klassisch");
             System.out.println("2.) Survival");
             System.out.println("3.) Timerace");
             System.out.println("9.) Spiel verlassen");
             String selected = Reader.readString();
-            switch (selected) {
+            switch (selected)
+            {
                 case "1":
                     ClassicGame game1 = new ClassicGame();
                     game1.startgame();
@@ -65,9 +58,6 @@ public class JavaMathGame {
                     System.out.println("Ungültige Eingabe:");
                     System.out.println(selected);
             }
-          
-        }
-                                          
+        }                                 
     }
-    
 }

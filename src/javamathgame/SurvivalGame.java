@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javamathgame;
-
 /**
- *
- * @author muster
+ * Version: 1.0
+ * Autor: Natter Jeremias | Monegat Alessio | Würzer Daniel 
  */
-public class SurvivalGame extends Game {
+public class SurvivalGame extends Game
+{
     int maxTargetNumber;
     
-    public SurvivalGame() {
+    public SurvivalGame()
+    {
         playNumber = 1;
         maxNumber = 1000;
         stepCount = 0;
@@ -22,7 +18,8 @@ public class SurvivalGame extends Game {
         maxTargetNumber = 300;
     }
     
-    public void startgame (){
+    public void startgame()
+    {
         playNumber = 1;
         stepCount = 0;
         maxSteps = 10;
@@ -35,9 +32,11 @@ public class SurvivalGame extends Game {
         System.out.println("");
     }
     
-    public String validate() { // Function to See if Player has lost
+    public String validate()    // Function to See if Player has lost
+    {
         String valid = "default";
-        if (playNumber == targetNumber) {
+        if (playNumber == targetNumber)
+        {
            maxSteps = maxSteps + 5;
            maxTargetNumber = maxTargetNumber * 2;
            targetNumber = Tools.random(0, maxTargetNumber);
@@ -50,7 +49,9 @@ public class SurvivalGame extends Game {
            statusoutput();
            Tools.sleep(2000);
         }
-        if (stepCount > maxSteps) {
+        
+        if (stepCount > maxSteps)
+        {
             valid = "lost";
         }
         return valid;

@@ -1,23 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javamathgame;
-
 import java.io.*;
-
 /**
- *
- * @author muster
+ * Version: 1.0
+ * Autor: Natter Jeremias | Monegat Alessio | Würzer Daniel 
  */
-public class Reader {
-    
-    public static int readInt (){
+public class Reader
+{
+    public static int readInt()
+    {
         String input;
         int output;
-        try{
-        
+        try
+        {
             BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
 
             input = r.readLine();
@@ -25,29 +19,34 @@ public class Reader {
 
             return output;
         }
-        catch(Exception e) {
+        catch(Exception e)
+        {
             System.out.println("Einlesefehler");
             throw new RuntimeException("Exc while trying ...", e);
         }
     }
     
-    public static String readString (){
-        try {
-        
+    public static String readString()
+    {
+        try
+        {
             BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
 
             String output = r.readLine();
 
             return output;
         }
-        catch(Exception e) {
+        catch(Exception e)
+        {
             System.out.println("Einlesefehler");
             throw new RuntimeException("Exc while trying ...", e);
         }
     }
     
-    public static double readDouble (){
-        try {
+    public static double readDouble()
+    {
+        try
+        {
             String input;
             double output;
 
@@ -58,7 +57,8 @@ public class Reader {
 
             return output;
         }
-        catch(Exception e) {
+        catch(Exception e)
+        {
             System.out.println("Einlesefehler");
             throw new RuntimeException("Exc while trying ...", e);
         }
