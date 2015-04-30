@@ -19,33 +19,31 @@ public class Player {
     static boolean valid = false;
     
     static Object Auth() {
-        valid = true;
-        do{
-        System.out.println("Melden Sie sich an:");
-        System.out.println("1. Anmelden");
-        System.out.println("2. Account Registieren");
-        System.out.println("3. Benutzer auflisten");
-        String selected = Reader.readString();
+        valid = false;
+        while (valid == false) {
+            System.out.println("Melden Sie sich an:");
+            System.out.println("1. Anmelden");
+            System.out.println("2. Account Registieren");
+            System.out.println("3. Benutzer auflisten");
+            String selected = Reader.readString();
             switch (selected) {
                 case "1":
-
+                    
+                    valid = true;
                     break;
                 case "2":
                     System.out.println("Geben Sie Ihren Nicknamen ein:");
                     
-                    
+                    valid = true;
                     break;
                 case "3":
                     
-                    valid = false;
                     break;
                 default:
-                    valid = false;
                     System.out.println("Ungültige Eingabe");
                     Tools.sleep(5000);
             }
         }
-        while(valid = true);
         Player pl = new Player();
         return pl;
     }
