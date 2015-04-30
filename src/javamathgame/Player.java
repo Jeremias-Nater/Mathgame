@@ -10,16 +10,19 @@ package javamathgame;
  * @author muster
  */
 public class Player {
-    String nickname;
+    private String nickname;
     //private int exp;
     //private int lvl;
     //private int cash;
     //private int highscore;
-    
+    public Player(String setNickname) {
+         nickname = setNickname;
+    }
     static boolean valid = false;
     
     static Object Auth() {
         valid = false;
+        String nickname = "";
         while (valid == false) {
             System.out.println("Melden Sie sich an:");
             System.out.println("1. Anmelden");
@@ -28,12 +31,13 @@ public class Player {
             String selected = Reader.readString();
             switch (selected) {
                 case "1":
-                    
+                    System.out.println("Wählen Sie einen Nicknamen:");
+                    nickname = Reader.readString();
                     valid = true;
                     break;
                 case "2":
                     System.out.println("Geben Sie Ihren Nicknamen ein:");
-                    
+                    nickname = Reader.readString();
                     valid = true;
                     break;
                 case "3":
@@ -44,7 +48,7 @@ public class Player {
                     Tools.sleep(5000);
             }
         }
-        Player pl = new Player();
+        Player pl = new Player(nickname);
         return pl;
     }
 }
