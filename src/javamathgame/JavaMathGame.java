@@ -11,26 +11,26 @@ package javamathgame;
  */
 
 
-public class JavaMathGame {
-    
+public class JavaMathGame
+{    
     public static void main(String[] args){
         
         boolean quit = false;
         boolean win = false;
         boolean lost = false;
-        Reader r = new Reader();
-        Player mias = new Player("JiggerJeremy");
-       
         while (!quit) {
+            
             win = false;
             lost = false;
+            
+            Player.Auth();
             
             System.out.println("Wählen Sie den Spielmodus:");
             System.out.println("1.) Klassisch");
             System.out.println("2.) Survival");
             System.out.println("3.) Timerace");
             System.out.println("9.) Spiel verlassen");
-            String selected = r.readString();
+            String selected = Reader.readString();
             switch (selected) {
                 case "1":
                     ClassicGame game1 = new ClassicGame();
@@ -53,7 +53,7 @@ public class JavaMathGame {
                     while (lost == false) {
                         survival.mathstep();
                         if (survival.validate() == "lost") {
-                            System.out.println("YOU HAVE LOST YOU FUCKING WORTHLESS CUNT");
+                            System.out.println("You lose? :-(");
                         }
                     }
                     break;
