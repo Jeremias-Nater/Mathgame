@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Reverse engineered javamathgame 2015.04.02 09-36-38-612">
+  <ClassDiagramComponents>
+    <Class xPosition="20.0" yPosition="20.0" package="javamathgame" name="ClassicGame" visibility="public">
+      <Constructors>
+        <Constructor name="ClassicGame" visibility="public"/>
+      </Constructors>
+      <Fields/>
+      <Methods>
+        <Method name="validate" visibility="public" returnType="String"/>
+        <Method name="startgame" visibility="public" returnType="void"/>
+      </Methods>
+    </Class>
+    <Class xPosition="320.0" yPosition="20.0" package="javamathgame" name="Game" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="playNumber" visibility="protected" type="int"/>
+        <Field name="stepCount" visibility="protected" type="int"/>
+        <Field name="maxNumber" visibility="protected" type="int"/>
+        <Field name="maxSteps" visibility="protected" type="int"/>
+        <Field name="targetNumber" visibility="protected" type="int"/>
+        <Field name="difficulty" visibility="protected" type="String"/>
+        <Field name="input" visibility="protected" type="String"/>
+        <Field name="valid" visibility="protected" type="boolean"/>
+      </Fields>
+      <Methods>
+        <Method name="statusoutput" visibility="public" returnType="void"/>
+        <Method name="mathstep" visibility="public" returnType="void"/>
+        <Method name="calculate" visibility="private" returnType="void">
+          <Argument type="String" name="operator"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class xPosition="620.0" yPosition="20.0" package="javamathgame" name="JavaMathGame" visibility="public">
+      <Constructors/>
+      <Fields/>
+      <Methods>
+        <Method name="main" visibility="public" returnType="void" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class xPosition="920.0" yPosition="20.0" package="javamathgame" name="Player" visibility="public">
+      <Constructors>
+        <Constructor name="Player" visibility="public">
+          <Argument type="String" name="inputname"/>
+        </Constructor>
+      </Constructors>
+      <Fields>
+        <Field name="name" visibility="private" type="String"/>
+        <Field name="exp" visibility="private" type="int"/>
+        <Field name="lvl" visibility="private" type="int"/>
+        <Field name="cash" visibility="private" type="int"/>
+        <Field name="highscore" visibility="private" type="int"/>
+      </Fields>
+      <Methods/>
+    </Class>
+    <Class xPosition="20.0" yPosition="420.0" package="javamathgame" name="Reader" visibility="public">
+      <Constructors/>
+      <Fields/>
+      <Methods>
+        <Method name="readInt" visibility="public" returnType="int" isStatic="true"/>
+        <Method name="readString" visibility="public" returnType="String" isStatic="true"/>
+        <Method name="readDouble" visibility="public" returnType="double" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class xPosition="320.0" yPosition="420.0" package="javamathgame" name="SurvivalGame" visibility="public">
+      <Constructors/>
+      <Fields/>
+      <Methods>
+        <Method name="startgame" visibility="public" returnType="void"/>
+        <Method name="validate" visibility="public" returnType="String"/>
+      </Methods>
+    </Class>
+    <Class xPosition="620.0" yPosition="420.0" package="javamathgame" name="Tools" visibility="public">
+      <Constructors/>
+      <Fields/>
+      <Methods>
+        <Method name="clearterminal" visibility="public" returnType="void" isStatic="true"/>
+        <Method name="random" visibility="public" returnType="int" isStatic="true">
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="sleep" visibility="public" returnType="void" isStatic="true">
+          <Argument type="int" name="duration"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="SurvivalGame" target="Game"/>
+    <IsRelation name="is" source="ClassicGame" target="Game"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
