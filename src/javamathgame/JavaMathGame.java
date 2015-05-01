@@ -14,7 +14,6 @@ public class JavaMathGame
         {
             win = false;
             lost = false;
-
             Player.Auth();
 
             System.out.println("Wählen Sie den Spielmodus:");
@@ -26,6 +25,7 @@ public class JavaMathGame
             switch (selected)
             {
                 case "1":
+                    System.out.println("Sie haben den Spielmodus Classic gewählt.");
                     ClassicGame game1 = new ClassicGame();
                     game1.startgame();
                     while (win == false && lost == false) {
@@ -41,6 +41,7 @@ public class JavaMathGame
                     }
                     break;
                 case "2":
+                    System.out.println("Sie haben den Spielmodus Survival gewählt.");
                     SurvivalGame survival = new SurvivalGame();
                     survival.startgame();
                     while (lost == false) {

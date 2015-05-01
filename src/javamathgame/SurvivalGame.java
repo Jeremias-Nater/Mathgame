@@ -26,7 +26,6 @@ public class SurvivalGame extends Game
         Reader r = new Reader();
         valid = false;
         targetNumber = Tools.random((maxTargetNumber / 2), maxTargetNumber);
-        System.out.println("Sie haben den Survival mode gewählt."); 
         statusoutput();
         Tools.sleep(2000);
         System.out.println("");

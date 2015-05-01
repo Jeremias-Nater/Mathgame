@@ -6,6 +6,7 @@ package javamathgame;
 public class Player
 {
     private String nickname;
+    static boolean valid = false;
     //private int exp;
     //private int lvl;
     //private int cash;
@@ -15,7 +16,6 @@ public class Player
     {
          nickname = setNickname;
     }
-    static boolean valid = false;
     
     static Object Auth()
     {
@@ -28,13 +28,18 @@ public class Player
             System.out.println("2. Account Registieren");
             System.out.println("3. Benutzer auflisten");
             String selected = Reader.readString();
+            Tools.clearterminal();
             switch (selected) {
                 case "1":
+                    System.out.println("Sie haben Anmelden gewählt.");
+                    System.out.println("");
                     System.out.println("Wählen Sie einen Nicknamen:");
                     nickname = Reader.readString();
                     valid = true;
                     break;
                 case "2":
+                    System.out.println("Sie haben Account Registrieren gewählt.");
+                    System.out.println("");
                     System.out.println("Geben Sie Ihren Nicknamen ein:");
                     nickname = Reader.readString();
                     valid = true;
@@ -49,6 +54,9 @@ public class Player
         }
         
         Player pl = new Player(nickname);
+        Tools.clearterminal();
+        System.out.println("Herzlich Willkommen " + pl.nickname);
+        System.out.println("");
         return pl;
     }
 }
