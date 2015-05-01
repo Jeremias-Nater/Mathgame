@@ -12,12 +12,15 @@ public class Player
     //private int cash;
     //private int highscore;
     
-    public Player(String setNickname)
-    {
-         nickname = setNickname;
-    }
     
-    static Object Auth() //Login Function, Creates Player, Reads / Writes Files
+    // GETSET for use of Private variables
+    public String getNickname() 
+    {
+        return this.nickname;
+    }
+    // End of GETSET
+    
+    public void Auth() //Login Function, Creates Player, Reads / Writes Files
     {
         valid = false;
         String nickname = "";
@@ -52,11 +55,11 @@ public class Player
                     Tools.sleep(5000);
             }
         }
-        Player pl = new Player(nickname);
+        this.nickname = nickname;
         Tools.clearterminal();
-        System.out.println("Herzlich Willkommen " + pl.nickname);
+        System.out.println("Herzlich Willkommen " + this.nickname);
         System.out.println("");
-        return pl;
+        
     }
     
     static boolean saveGame()  // Not used Yet, will Write Files

@@ -14,8 +14,9 @@ public class JavaMathGame
         {
             win = false;
             lost = false;
-            Player.Auth();
-
+            Player player1 = new Player();
+            player1.Auth(); // Login of Player
+            
             System.out.println("Wählen Sie den Spielmodus:");
             System.out.println("1.) Klassisch");
             System.out.println("2.) Survival");
