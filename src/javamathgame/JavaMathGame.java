@@ -76,12 +76,19 @@ public class JavaMathGame
                 case "2":
                     Tools.clearterminal();
                     System.out.println("Sie haben den Spielmodus Survival gewählt.");
-                    SurvivalGame survival = new SurvivalGame();
-                    survival.startgame();
+                    SurvivalGame survivalGame1 = new SurvivalGame();
+                    survivalGame1.startgame();
                     while (lost == false) {
-                        survival.mathstep();
-                        if (survival.validate() == "lost") {
-                            System.out.println("You lose? :-(");
+                        survivalGame1.mathstep();
+                        if (survivalGame1.validate() == "lost") {
+                            System.out.println("You lose.");
+                            // Calculate Gained EXP
+                            int gainedExp = survivalGame1.getMaxNumber() / 10;
+                            System.out.println("Sie haben " + gainedExp + "EXP Erhalten");
+                            player1.setExp(player1.getExp() + gainedExp);
+                            System.out.println("Aktuelles LVL: " + player1.getLevel());
+                            Tools.sleep(4000);
+                            // End of EXP Calc
                             lost = true;
                             Tools.clearterminal();
                         }

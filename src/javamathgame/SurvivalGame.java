@@ -17,6 +17,12 @@ public class SurvivalGame extends Game // All general Game Methods are in Class 
         valid = false;
         maxTargetNumber = 300;
     }
+    // GETSET for use of Private variables
+    public int getMaxNumber()
+    {
+        return this.maxNumber;
+    }
+    // End of GETSET
     
     public void startgame()
     {
