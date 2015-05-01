@@ -34,7 +34,7 @@ public class JavaMathGame
                     game1.startgame();
                     while (win == false && lost == false) {
                         game1.mathstep();
-                        if (game1.validate() == "won") {
+                        if (game1.validate() == "won") {    //Won Classicgame
                             win = true;
                             System.out.println("Sie haben gewonnen!!");
                             
@@ -63,10 +63,14 @@ public class JavaMathGame
                             System.out.println("Aktuelles LVL: " + player1.getLevel());
                             Tools.sleep(4000);
                             // End of EXP Calc
+                            
+                            //Save Game
+                            player1.saveGame();
+                            
                             Tools.clearterminal();
                             win = true;
                         }
-                        if (game1.validate() == "lost") {
+                        if (game1.validate() == "lost") { // Lost of ClassicGame
                             System.out.println("You lose? :-(");
                             lost = true;
                             Tools.clearterminal();
@@ -80,17 +84,21 @@ public class JavaMathGame
                     survivalGame1.startgame();
                     while (lost == false) {
                         survivalGame1.mathstep();
-                        if (survivalGame1.validate() == "lost") {
+                        if (survivalGame1.validate() == "lost") {   // End of SurvivalGame
                             System.out.println("You lose.");
                             // Calculate Gained EXP
                             int gainedExp = survivalGame1.getMaxNumber() / 10;
                             System.out.println("Sie haben " + gainedExp + "EXP Erhalten");
                             player1.setExp(player1.getExp() + gainedExp);
                             System.out.println("Aktuelles LVL: " + player1.getLevel());
-                            Tools.sleep(4000);
                             // End of EXP Calc
-                            lost = true;
+                            
+                            //Save Game
+                            player1.saveGame();
+                            Tools.sleep(4000);
+                            
                             Tools.clearterminal();
+                            lost = true;
                         }
                     }
                     break;

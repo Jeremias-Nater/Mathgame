@@ -20,7 +20,7 @@ public class SurvivalGame extends Game // All general Game Methods are in Class 
     // GETSET for use of Private variables
     public int getMaxNumber()
     {
-        return this.maxNumber;
+        return this.maxTargetNumber;
     }
     // End of GETSET
     

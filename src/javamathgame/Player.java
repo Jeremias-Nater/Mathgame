@@ -80,7 +80,7 @@ public class Player
         
     }
     
-    static boolean saveGame()  // Not used Yet, will Write Files
+    public boolean saveGame()  // Not used Yet, will Write Files
     {
         boolean success = false;
         // Save Game here and set success Variable
