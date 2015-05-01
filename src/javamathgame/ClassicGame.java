@@ -11,7 +11,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
         maxNumber = 1000;
         stepCount = 0;
         maxSteps = 50;
-        this.difficulty = "normal";
+        difficulty = "normal";
         valid = false;   
     }
     
@@ -23,7 +23,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
             valid = "won";
         }
         
-        if (stepCount > maxSteps)
+        if (stepCount > this.maxSteps)
         {
             valid = "lost";
         }
@@ -51,7 +51,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
                     Tools.clearterminal();
                     System.out.println("Sie haben Easy gewählt");
                     targetNumber = Tools.random(0, 300);
-                    maxSteps = 20;
+                    this.maxSteps = 20;
                     valid = true;
                     break;
                 case "2":
@@ -59,7 +59,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
                     Tools.clearterminal();
                     System.out.println("Sie haben Normal gewählt");
                     targetNumber = Tools.random(300, 1000);
-                     maxSteps = 15;
+                    this.maxSteps = 15;
                     valid = true;
                     break;
                 case "3":
@@ -67,7 +67,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
                     Tools.clearterminal();
                     System.out.println("Sie haben Hard gewählt");
                     targetNumber = Tools.random(1000, 3000);
-                    maxSteps = 10;
+                    this.maxSteps = 10;
                     valid = true;
                     break;
                 case "4":
@@ -75,7 +75,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
                     Tools.clearterminal();
                     System.out.println("Sie haben Impossible gewählt");
                     targetNumber = Tools.random(3000, 10000);
-                    maxSteps = 10;
+                    this.maxSteps = 10;
                     valid = true;
                     break;
                 default:

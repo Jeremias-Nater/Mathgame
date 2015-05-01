@@ -20,6 +20,10 @@ public class Player
     {
         return this.exp;
     }
+    public void setExp(int setExp) 
+    {
+        this.exp = setExp;
+    }
     public int getLevel() // Level is Calculated of Exp
     {
         int lvl = 1;

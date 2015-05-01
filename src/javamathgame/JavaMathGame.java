@@ -37,6 +37,32 @@ public class JavaMathGame
                         if (game1.validate() == "won") {
                             win = true;
                             System.out.println("Sie haben gewonnen!!");
+                            
+                            // Calculate Gained EXP
+                            int gainedExp = 10;
+                            int difficultyMultiplyer = 1;
+                            switch (game1.difficulty) {
+                                case "easy":
+                                    difficultyMultiplyer = 1;
+                                    break;
+                                case "normal":
+                                    difficultyMultiplyer = 2;
+                                    break;
+                                case "hard":
+                                    difficultyMultiplyer = 4;
+                                    break;
+                                case "impossible":
+                                    difficultyMultiplyer = 8;
+                                    break;
+                                default:
+                                    System.out.println("Invalid Difficuly!");
+                            }
+                            gainedExp = 20 * difficultyMultiplyer;
+                            System.out.println("Sie haben " + gainedExp + "EXP Erhalten");
+                            player1.setExp(player1.getExp() + gainedExp);
+                            System.out.println("Aktuelles LVL: " + player1.getLevel());
+                            Tools.sleep(4000);
+                            // End of EXP Calc
                             Tools.clearterminal();
                         }
                         if (game1.validate() == "lost") {
