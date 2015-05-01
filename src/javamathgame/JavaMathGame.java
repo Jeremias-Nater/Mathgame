@@ -69,6 +69,7 @@ public class JavaMathGame
                         if (game1.validate() == "lost") {
                             System.out.println("You lose? :-(");
                             lost = true;
+                            Tools.clearterminal();
                         }
                     }
                     break;
@@ -82,6 +83,7 @@ public class JavaMathGame
                         if (survival.validate() == "lost") {
                             System.out.println("You lose? :-(");
                             lost = true;
+                            Tools.clearterminal();
                         }
                     }
                     break;
