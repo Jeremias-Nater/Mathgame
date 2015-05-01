@@ -6,7 +6,7 @@ package javamathgame;
 public class JavaMathGame
 {
     public static void main(String[] args)
-    {        
+    {
         boolean quit = false;
         boolean win = false;
         boolean lost = false;

@@ -24,12 +24,12 @@ public class Tools
         return randomnumber;
     }
         
-    public static void writeFile(String eingabe)
+    public static void writeFile(String filename, String savestring)
     {
         try
         {
-            FileWriter write = new FileWriter(System.getenv("APPDATA")); //Definieren des Writers
-            write.write(eingabe); //Schreiben der Werte
+            FileWriter write = new FileWriter(System.getProperty("user.home") + "/Mathgame/" + filename); //Definieren des Writers
+            write.write(savestring); //Schreiben der Werte
             write.write(System.getProperty("line.separator")); //Zeilenumbruch nach schreiben der Werte
             write.close(); //Closes File
         }
