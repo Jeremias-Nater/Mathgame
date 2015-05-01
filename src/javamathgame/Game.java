@@ -22,7 +22,7 @@ public class Game
         System.out.println("Verfügbare Schritte: " + (maxSteps - stepCount));
     }
     
-    public void mathstep()
+    public void mathstep()      // 1 full Calculation with the Math-Functions, Repeatedly used.
     {
         stepCount++;
         valid = false;
@@ -72,7 +72,7 @@ public class Game
         calculate(input);
     }
     
-    private void calculate(String operator)
+    private void calculate(String operator)     // used only in Mathstep Function, seperated to not Blow it up
     {
         int calcNumber = 0;
         int newPlayNumber;

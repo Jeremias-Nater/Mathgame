@@ -3,7 +3,7 @@ package javamathgame;
  * Version: 1.0
  * Autor: Nater Jeremias | Monegat Alessio | Würzer Daniel 
  */
-public class ClassicGame extends Game
+public class ClassicGame extends Game // All general Game Methods are in Class Game
 {
     public ClassicGame()
     {
@@ -15,7 +15,7 @@ public class ClassicGame extends Game
         valid = false;   
     }
     
-    public String validate()    // Function to See if Player has lost
+    public String validate()    // Function to See if Player has lost or Won
     {
         String valid = "default";
         if (playNumber == targetNumber)
@@ -30,7 +30,7 @@ public class ClassicGame extends Game
         return valid;
     }
     
-    public void startgame()
+    public void startgame()     // Game Setup
     {
         playNumber = 1;
         stepCount = 0;

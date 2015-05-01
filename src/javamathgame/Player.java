@@ -17,7 +17,7 @@ public class Player
          nickname = setNickname;
     }
     
-    static Object Auth()
+    static Object Auth() //Login Function, Creates Player, Reads / Writes Files
     {
         valid = false;
         String nickname = "";
@@ -52,11 +52,22 @@ public class Player
                     Tools.sleep(5000);
             }
         }
-        
         Player pl = new Player(nickname);
         Tools.clearterminal();
         System.out.println("Herzlich Willkommen " + pl.nickname);
         System.out.println("");
         return pl;
+    }
+    
+    static boolean saveGame()  // Not used Yet, will Write Files
+    {
+        boolean success = false;
+        // Save Game here and set success Variable
+        if (success) {
+            System.out.println("Spiel erfolgreich gespeichert");
+        } else {
+            System.out.println("Spiel konnte nicht gespeichert werden, versuchen Sie es erneut");
+        }
+        return success;
     }
 }

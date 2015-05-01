@@ -3,7 +3,7 @@ package javamathgame;
  * Version: 1.0
  * Autor: Nater Jeremias | Monegat Alessio | Würzer Daniel 
  */
-public class SurvivalGame extends Game
+public class SurvivalGame extends Game // All general Game Methods are in Class Game
 {
     int maxTargetNumber;
     
@@ -31,7 +31,7 @@ public class SurvivalGame extends Game
         System.out.println("");
     }
     
-    public String validate()    // Function to See if Player has lost
+    public String validate()    // Function to See if Player has lost or Won
     {
         String valid = "default";
         if (playNumber == targetNumber)

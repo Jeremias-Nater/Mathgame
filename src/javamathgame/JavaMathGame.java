@@ -25,6 +25,7 @@ public class JavaMathGame
             switch (selected)
             {
                 case "1":
+                    Tools.clearterminal();
                     System.out.println("Sie haben den Spielmodus Classic gewählt.");
                     ClassicGame game1 = new ClassicGame();
                     game1.startgame();
@@ -41,6 +42,7 @@ public class JavaMathGame
                     }
                     break;
                 case "2":
+                    Tools.clearterminal();
                     System.out.println("Sie haben den Spielmodus Survival gewählt.");
                     SurvivalGame survival = new SurvivalGame();
                     survival.startgame();
