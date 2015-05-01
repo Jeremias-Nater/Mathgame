@@ -64,9 +64,11 @@ public class JavaMathGame
                             Tools.sleep(4000);
                             // End of EXP Calc
                             Tools.clearterminal();
+                            win = true;
                         }
                         if (game1.validate() == "lost") {
                             System.out.println("You lose? :-(");
+                            lost = true;
                         }
                     }
                     break;
@@ -79,6 +81,7 @@ public class JavaMathGame
                         survival.mathstep();
                         if (survival.validate() == "lost") {
                             System.out.println("You lose? :-(");
+                            lost = true;
                         }
                     }
                     break;
