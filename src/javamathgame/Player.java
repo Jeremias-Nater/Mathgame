@@ -7,16 +7,30 @@ public class Player
 {
     private String nickname;
     static boolean valid = false;
-    //private int exp;
-    //private int lvl;
+    private int exp;
     //private int cash;
     //private int highscore;
-    
     
     // GETSET for use of Private variables
     public String getNickname() 
     {
         return this.nickname;
+    }
+    public int getExp() 
+    {
+        return this.exp;
+    }
+    public int getLevel() // Level is Calculated of Exp
+    {
+        int lvl = 1;
+        int lvlUpExp = 100;
+        int currentExp = this.exp;
+        while (this.exp > lvlUpExp) {
+            lvl++;
+            currentExp = currentExp - lvlUpExp;
+            lvlUpExp = (int) Math.round(lvlUpExp * 1.2);
+        }
+        return lvl;
     }
     // End of GETSET
     
