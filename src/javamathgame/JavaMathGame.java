@@ -17,12 +17,11 @@ public class JavaMathGame
             win = false;
             lost = false;
             
-            
-            
             System.out.println("Was wollen Sie tun?:");
             System.out.println("1.) Klassischen Spielmodus Sielen");
             System.out.println("2.) Survival Spielmodus Sielen");
             System.out.println("3.) Timerace Spielmodus Sielen");
+            System.out.println("");
             System.out.println("8.) Profil ansehen");
             System.out.println("9.) Spiel verlassen");
             String selected = Reader.readString();
@@ -41,7 +40,7 @@ public class JavaMathGame
                             Tools.clearterminal();
                         }
                         if (game1.validate() == "lost") {
-                            System.out.println("YOU HAVE LOST YOU FUCKING WORTHLESS CUNT");
+                            System.out.println("You lose? :-(");
                         }
                     }
                     break;
@@ -63,6 +62,10 @@ public class JavaMathGame
                     System.out.println("");
                     System.out.println("Nickname:" + player1.getNickname());
                     System.out.println("Level: " + player1.getLevel());
+                    System.out.println("");
+                    System.out.println("Eingabe um fortzufahren");
+                    Reader.readString();
+                    Tools.clearterminal();
                     break;
                 case "9":
                     System.out.println("Spiel geschlossen");

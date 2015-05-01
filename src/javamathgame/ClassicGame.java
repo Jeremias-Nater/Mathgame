@@ -11,7 +11,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
         maxNumber = 1000;
         stepCount = 0;
         maxSteps = 50;
-        difficulty = "normal";
+        this.difficulty = "normal";
         valid = false;   
     }
     
@@ -47,7 +47,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
             switch (input)
             {
                 case "1":
-                    difficulty = "easy";
+                    this.difficulty = "easy";
                     Tools.clearterminal();
                     System.out.println("Sie haben Easy gewählt");
                     targetNumber = Tools.random(0, 300);
@@ -55,7 +55,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
                     valid = true;
                     break;
                 case "2":
-                    difficulty = "normal";
+                    this.difficulty = "normal";
                     Tools.clearterminal();
                     System.out.println("Sie haben Normal gewählt");
                     targetNumber = Tools.random(300, 1000);
@@ -63,7 +63,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
                     valid = true;
                     break;
                 case "3":
-                    difficulty = "hard";
+                    this.difficulty = "hard";
                     Tools.clearterminal();
                     System.out.println("Sie haben Hard gewählt");
                     targetNumber = Tools.random(1000, 3000);
@@ -71,7 +71,7 @@ public class ClassicGame extends Game // All general Game Methods are in Class G
                     valid = true;
                     break;
                 case "4":
-                    difficulty = "impossible";
+                    this.difficulty = "impossible";
                     Tools.clearterminal();
                     System.out.println("Sie haben Impossible gewählt");
                     targetNumber = Tools.random(3000, 10000);

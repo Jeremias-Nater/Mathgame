@@ -15,6 +15,13 @@ public class Game
     protected String input;
     protected boolean valid;
     
+    // GETSET for use of Private variables
+    public String getDifficulty()
+    {
+        return this.difficulty;
+    }
+    // End of GETSET
+    
     public void statusoutput()  //Is used Repeatedly to show actual numbers
     {
         System.out.println("Ihre Nummer:" + playNumber);
