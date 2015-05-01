@@ -2,7 +2,7 @@ package javamathgame;
 import java.io.*;
 /**
  * Version: 1.0
- * Autor: Natter Jeremias | Monegat Alessio | Würzer Daniel 
+ * Autor: Nater Jeremias | Monegat Alessio | Würzer Daniel 
  */
 public class Reader
 {

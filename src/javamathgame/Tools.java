@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.Random;
 /**
  * Version: 1.0
- * Autor: Natter Jeremias | Monegat Alessio | Würzer Daniel 
+ * Autor: Nater Jeremias | Monegat Alessio | Würzer Daniel 
  */
 public class Tools
 {
