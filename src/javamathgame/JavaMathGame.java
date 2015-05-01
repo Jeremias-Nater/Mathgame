@@ -10,17 +10,20 @@ public class JavaMathGame
         boolean quit = false;
         boolean win = false;
         boolean lost = false;
+        Player player1 = new Player();
+        player1.Auth(); // Login of Player
         while (!quit)
         {
             win = false;
             lost = false;
-            Player player1 = new Player();
-            player1.Auth(); // Login of Player
             
-            System.out.println("Wählen Sie den Spielmodus:");
-            System.out.println("1.) Klassisch");
-            System.out.println("2.) Survival");
-            System.out.println("3.) Timerace");
+            
+            
+            System.out.println("Was wollen Sie tun?:");
+            System.out.println("1.) Klassischen Spielmodus Sielen");
+            System.out.println("2.) Survival Spielmodus Sielen");
+            System.out.println("3.) Timerace Spielmodus Sielen");
+            System.out.println("8.) Profil ansehen");
             System.out.println("9.) Spiel verlassen");
             String selected = Reader.readString();
             switch (selected)
@@ -53,6 +56,13 @@ public class JavaMathGame
                             System.out.println("You lose? :-(");
                         }
                     }
+                    break;
+                case "8":
+                    Tools.clearterminal();
+                    System.out.println("Ihr Profil:");
+                    System.out.println("");
+                    System.out.println("Nickname:" + player1.getNickname());
+                    System.out.println("Level: " + player1.getLevel());
                     break;
                 case "9":
                     System.out.println("Spiel geschlossen");
