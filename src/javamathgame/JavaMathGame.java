@@ -71,7 +71,8 @@ public class JavaMathGame
                             win = true;
                         }
                         if (game1.validate() == "lost") { // Lost of ClassicGame
-                            System.out.println("You lose? :-(");
+                            System.out.println("You lose");
+                            Tools.sleep(5000);
                             lost = true;
                             Tools.clearterminal();
                         }
