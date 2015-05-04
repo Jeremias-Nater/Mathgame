@@ -47,6 +47,37 @@ public class Tools
                     throw new RuntimeException("Exc while trying ...", e);
                 }
     }
+    public static boolean readFile(String checkstring)
+    {
+        try{
+        FileReader fr = new FileReader("Accounts.txt");
+        BufferedReader br = new BufferedReader(fr);
+        String zeile = "";
+        boolean test = true;
+        do
+        {
+          zeile = br.readLine();
+          System.out.println(zeile);
+          if(checkstring == br.readLine())
+          {
+              test = false;
+          }
+        }
+        while (zeile != null);
+
+        br.close();
+        if(this.test == false)
+        {
+            return false;
+        }
+        }
+        
+        catch(Exception e)
+                {
+                    System.out.println("Write not successfull");
+                    throw new RuntimeException("Exc while trying ...", e);
+                }
+    }
     
     public static void sleep (int duration)
     {
