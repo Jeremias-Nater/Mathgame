@@ -9,12 +9,7 @@ public class Tools
 {
     public static void clearterminal()
     {
-        int i = 0;
-        while (i < 12)
-        {
-            i++;
-            System.out.println("");
-        }
+            System.out.println("\n\n\n\n\n\n\n\n\n\n");
     }
     
     public static int random(int min, int max)
