@@ -83,12 +83,8 @@ public class Player
     public boolean saveGame()  // Is already included, but does not really save yet..
     {
         boolean success = false;
-        // Save Game here and set success Variable
-        if (success) {
-            System.out.println("Spiel erfolgreich gespeichert");
-        } else {
-            System.out.println("Spiel konnte nicht gespeichert werden, versuchen Sie es erneut");
-        }
+        Tools.writeFile(this.nickname+";"+this.exp+";"+this.getLevel());
+        success = true;
         return success;
     }
 }

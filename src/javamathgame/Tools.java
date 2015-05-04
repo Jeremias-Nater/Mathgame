@@ -37,9 +37,9 @@ public class Tools
                         bw.write(content);
                         bw.newLine();
 			bw.close();
- 
-			System.out.println("Done");
- 
+                        System.out.println("Spiel gespeichert, fahre fort...");
+                        Tools.sleep(3000);
+                        
 		} 
                 catch(Exception e)
                 {

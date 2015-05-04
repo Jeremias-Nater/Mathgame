@@ -65,8 +65,6 @@ public class JavaMathGame
                             Tools.sleep(4000);
                             // End of EXP Calc
                             
-                            //Save Game
-                            player1.saveGame();
                             
                             Tools.clearterminal();
                             win = true;
@@ -95,8 +93,6 @@ public class JavaMathGame
                             System.out.println("Aktuelles LVL: " + player1.getLevel());
                             // End of EXP Calc
                             
-                            //Save Game
-                            player1.saveGame();
                             Tools.sleep(4000);
                             
                             Tools.clearterminal();
@@ -105,7 +101,8 @@ public class JavaMathGame
                     }
                     break;
                 case "7":  
-                    
+                    player1.saveGame();
+                    Tools.clearterminal();
                     break;
                 case "8":
                     Tools.clearterminal();
