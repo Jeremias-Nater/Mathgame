@@ -22,6 +22,7 @@ public class JavaMathGame
             System.out.println("2.) Survival Spielmodus Sielen");
             System.out.println("3.) Timerace Spielmodus Sielen");
             System.out.println("");
+            System.out.println("7.) Speichern");
             System.out.println("8.) Profil ansehen");
             System.out.println("9.) Spiel verlassen");
             String selected = Reader.readString();
@@ -102,6 +103,9 @@ public class JavaMathGame
                             lost = true;
                         }
                     }
+                    break;
+                case "7":  
+                    
                     break;
                 case "8":
                     Tools.clearterminal();

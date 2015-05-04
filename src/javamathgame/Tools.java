@@ -19,20 +19,33 @@ public class Tools
         return randomnumber;
     }
         
-    public static void writeFile(String filename, String savestring)
+    public static void writeFile(String savestring)
     {
-        try
-        {
-            FileWriter write = new FileWriter(System.getProperty("user.home") + "/Mathgame/" + filename); //Definieren des Writers
-            write.write(savestring); //Schreiben der Werte
-            write.write(System.getProperty("line.separator")); //Zeilenumbruch nach schreiben der Werte
-            write.close(); //Closes File
-        }
-        catch(Exception e)
-        {
-            System.out.println("Write to file unsuccessfull.");
-            throw new RuntimeException("Exc while trying ...", e);
-        }
+        	try {
+ 
+			String content = savestring;
+ 
+			File file = new File("Accounts.txt");
+ 
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+ 
+			FileWriter fw = new FileWriter(file.getAbsoluteFile(), true); //True -> Dont overwrite
+			BufferedWriter bw = new BufferedWriter(fw);
+                        bw.write(content);
+                        bw.newLine();
+			bw.close();
+ 
+			System.out.println("Done");
+ 
+		} 
+                catch(Exception e)
+                {
+                    System.out.println("Write not successfull");
+                    throw new RuntimeException("Exc while trying ...", e);
+                }
     }
     
     public static void sleep (int duration)
