@@ -66,12 +66,15 @@ public class Tools
         while (zeile != null);
 
         br.close();
-        if(this.test == false)
+        if(test == false)
         {
             return false;
+        } 
+        else 
+        {
+            return true;
         }
         }
-        
         catch(Exception e)
                 {
                     System.out.println("Write not successfull");
