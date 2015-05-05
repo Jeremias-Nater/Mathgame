@@ -11,7 +11,7 @@ public class JavaMathGame
         boolean win = false;
         boolean lost = false;
         Player player1 = new Player();
-        player1.Auth(); // Login of Player
+        player1.auth(); // Login of Player
         while (!quit)
         {
             win = false;
@@ -100,8 +100,12 @@ public class JavaMathGame
                         }
                     }
                     break;
-                case "7":  
-                    player1.saveGame();
+                case "7":
+                    if (player1.saveGame()) {
+                        System.out.println("Save Successfull");
+                    } else {
+                        System.out.println("Game could not be Saved");
+                    }
                     Tools.clearterminal();
                     break;
                 case "8":

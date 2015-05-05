@@ -38,7 +38,7 @@ public class Player
     }
     // End of GETSET
     
-    public void Auth() //Login Function, Creates Player, Reads / Writes Files
+    public void auth() //Login Function, Creates Player, Reads / Writes Files
     {
         valid = false;
         String nickname = "";
@@ -56,21 +56,45 @@ public class Player
                     System.out.println("");
                     System.out.println("Wählen Sie einen Nicknamen:");
                     nickname = Reader.readString();
-                    valid = true;
+                    System.out.println("");
+                    if (this.loadGame(nickname)) {
+                        System.out.println("Spiel erfolgreich geladen");
+                        System.out.println("Nickname: " + this.nickname);
+                        System.out.println("Level: " + this.getLevel());
+                        System.out.println("EXP: " + this.exp);
+                        Tools.sleep(3000);
+                        valid = true;
+                    } else {
+                        System.out.println("Speicherstand nicht gefunden, bitte Registriere dich.");
+                        Tools.sleep(3000);
+                        
+                    }
+                    System.out.println("");
                     break;
                 case "2":
                     System.out.println("Sie haben Account Registrieren gewählt.");
                     System.out.println("");
                     System.out.println("Geben Sie Ihren Nicknamen ein:");
                     nickname = Reader.readString();
-                    valid = true;
+                    System.out.println("");
+                    if (this.registerAccount(nickname)) {
+                        System.out.println("Account registriert");
+                        valid = true;
+                    } 
+                    else
+                    {
+                        System.out.println("Acount Existiert bereits");
+                    }
+                    Tools.sleep(3000);
+                    
+                    
                     break;
                 case "3":
                     
                     break;
                 default:
                     System.out.println("Ungültige Eingabe");
-                    Tools.sleep(5000);
+                    Tools.sleep(3000);
             }
         }
         this.nickname = nickname;
@@ -80,11 +104,46 @@ public class Player
         
     }
     
-    public boolean saveGame()  // Is already included, but does not really save yet..
-    {
+    public boolean saveGame() // not working yet because it needs to replace existing Line
+    {   
+        boolean success;
+        if (Tools.findLine(this.nickname) == "") {
+            Tools.writeFile(this.nickname+";"+this.exp+";");
+            success = true;
+        } else {
+            success = false;
+        }
+        return success;
+    }
+    public boolean loadGame(String inputnickname) {
         boolean success = false;
-        Tools.writeFile(this.nickname+";"+this.exp+";"+this.getLevel());
-        success = true;
+        String loadGame;
+        loadGame =Tools.findLine(inputnickname);
+        if (loadGame != "") {
+            String[] GameArray = loadGame.split(";");
+            this.nickname = GameArray[0];
+            this.exp = Integer.parseInt(GameArray[1]);
+            success = true;
+        }
+        else
+        {   
+            System.out.println(loadGame);
+            Reader.readString();
+        }
+        return success;
+    }
+    public boolean registerAccount(String inputnickname)  // Registers Account with 0 exp, lvl is calculated by getlvl
+    {   
+        boolean success;
+        if (Tools.findLine(inputnickname) == "") {
+            
+            Tools.writeFile(inputnickname+";0");
+            success = true;
+        }
+        else
+        {
+            success = false;
+        }
         return success;
     }
 }

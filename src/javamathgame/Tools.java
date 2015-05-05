@@ -19,67 +19,62 @@ public class Tools
         return randomnumber;
     }
         
-    public static void writeFile(String savestring)
+    public static void writeFile(String savestring) //Writes String to file
     {
-        	try {
- 
-			String content = savestring;
- 
-			File file = new File("Accounts.txt");
- 
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
- 
-			FileWriter fw = new FileWriter(file.getAbsoluteFile(), true); //True -> Dont overwrite
-			BufferedWriter bw = new BufferedWriter(fw);
-                        bw.write(content);
-                        bw.newLine();
-			bw.close();
-                        System.out.println("Spiel gespeichert, fahre fort...");
-                        Tools.sleep(3000);
-                        
-		} 
-                catch(Exception e)
-                {
-                    System.out.println("Write not successfull");
-                    throw new RuntimeException("Exc while trying ...", e);
-                }
-    }
-    public static boolean readFile(String checkstring)
-    {
-        try{
-        FileReader fr = new FileReader("Accounts.txt");
-        BufferedReader br = new BufferedReader(fr);
-        String zeile = "";
-        boolean test = true;
-        do
-        {
-          zeile = br.readLine();
-          System.out.println(zeile);
-          if(checkstring == br.readLine())
-          {
-              test = false;
-          }
-        }
-        while (zeile != null);
+        try {
+            String content = savestring;
 
-        br.close();
-        if(test == false)
-        {
-            return false;
-        } 
-        else 
-        {
-            return true;
-        }
+            File file = new File("Accounts.txt");
+
+            // if file doesnt exists, then create it
+            if (!file.exists()) {
+                    file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file.getAbsoluteFile(), true); //True -> Dont overwrite
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.newLine();
+            bw.close();
+            System.out.println("Spiel gespeichert, fahre fort...");
+            Tools.sleep(3000);
         }
         catch(Exception e)
-                {
-                    System.out.println("Write not successfull");
-                    throw new RuntimeException("Exc while trying ...", e);
+        {
+            System.out.println("Write not successfull");
+            throw new RuntimeException("Exc while trying ...", e);
+        }
+    }
+    public static String findLine(String checkstring)// If String is found, Return Line, else Return=""
+    {
+        try {
+            File file = new File("Accounts.txt");
+            if (!file.exists()) {
+                    file.createNewFile();
+            }
+            FileReader fr = new FileReader("Accounts.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String zeile = "";
+            String foundLine = "";
+            
+            while (zeile != null)
+            {
+                zeile = br.readLine();
+                if (zeile != null) {
+                    if(zeile.contains(checkstring))
+                    {
+                        foundLine = zeile;
+                        return foundLine;
+                    }
                 }
+            }
+            br.close();
+            return foundLine;
+        }
+        catch(Exception e)
+        {
+            System.out.println("Findline not successfull");
+            throw new RuntimeException("Exc while trying ...", e);
+        }
     }
     
     public static void sleep (int duration)
