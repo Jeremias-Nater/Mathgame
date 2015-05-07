@@ -34,7 +34,9 @@ public class Tools
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(content);
             bw.newLine();
+            
             bw.close();
+            fw.close();
             System.out.println("Spiel gespeichert, fahre fort...");
             
             Tools.sleep(3000);
@@ -64,10 +66,13 @@ public class Tools
                     if(zeile.contains(checkstring))
                     {
                         foundLine = zeile;
+                        br.close();
+                        fr.close();
                         return foundLine;
                     }
                 }
             }
+            fr.close();
             br.close();
             return foundLine;
         }
@@ -79,61 +84,40 @@ public class Tools
     }
     
     public static boolean removeline(String checkstring){
-    try 
-    {
-        int toRemove;
-        boolean success = false;
-        File file = new File("Accounts.txt");
-        if (!file.exists()) {
-                file.createNewFile();
-        }
-        
-        String zeile = "";
-        int foundLine = 0;
-        int i = 0;
-        
-        BufferedReader br = new BufferedReader(new FileReader("Accounts.txt"));
-        BufferedWriter bw = new BufferedWriter(new FileWriter("Accounts.txt"));
-        
-        while (zeile != null)
+        try 
         {
-            zeile = br.readLine();
-            if (zeile != null) 
-            {
-                i++;
-                if(zeile.contains(checkstring)) {
-                    foundLine = i;
-                    success = true;
-                    System.out.println(foundLine);
-                    Reader.readString();
-                    return success;
-                }
-            }
-        }
-        
-        if (foundLine != 0) {
-            for (i = 0; i < foundLine; i++) {
-                bw.write(String.format("%s%n", br.readLine()));
-            }
-        }
-        
-        br.readLine();
+            File inputFile = new File("Accounts.txt");
+            File tempFile = new File("Accounts_temp.txt");
 
-        String l;
-        while (null != (l = br.readLine())) {
-            bw.write(String.format("%s%n", l));
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            
+            String currentLine;
+
+            while((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with lineToRemove
+                String trimmedLine = currentLine.trim();
+                if(trimmedLine.contains(checkstring)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close(); 
+            reader.close();
+            
+            boolean successful = false;
+            if (inputFile.delete()) {
+                successful = tempFile.renameTo(inputFile);
+            } else {
+                System.out.println("File could not be deleted!");
+                Tools.sleep(3000);
+            }
+            
+            return successful;
         }
-        
-        br.close();
-        bw.close();
-        
-        return success;
+        catch(Exception e) {
+            System.out.println("Sleep Interrupted!");
+            throw new RuntimeException("Exc while trying ...", e);
+        }
     }
-    catch(Exception e) {
-        System.out.println("Sleep Interrupted!");
-        throw new RuntimeException("Exc while trying ...", e);
-    }
-}
     
     public static void sleep (int duration) {
         try {

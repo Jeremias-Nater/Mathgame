@@ -131,8 +131,7 @@ public class Player
         }
         else
         {   
-            System.out.println(loadGame);
-            Reader.readString();
+            System.out.println("Spiel konnte nicht gefunden werden.");
         }
         
         return success;

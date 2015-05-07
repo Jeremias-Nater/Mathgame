@@ -1,1 +1,4 @@
-okok;0;
+okok;0
+dude;0
+nein;0
+okok;140;
