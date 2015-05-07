@@ -36,6 +36,7 @@ public class Tools
             bw.newLine();
             bw.close();
             System.out.println("Spiel gespeichert, fahre fort...");
+            
             Tools.sleep(3000);
         }
         catch(Exception e)
@@ -76,6 +77,68 @@ public class Tools
             throw new RuntimeException("Exc while trying ...", e);
         }
     }
+    public static boolean removeline(String checkstring){
+    try 
+    {
+        int toRemove;
+        boolean success = false;
+        File file = new File("Accounts.txt");
+        if (!file.exists()) {
+                file.createNewFile();
+        }
+        String zeile = "";
+        int foundLine = 0;
+        int i = 0;
+        File tmp = File.createTempFile("tmp", "");
+        BufferedReader br = new BufferedReader(new FileReader("Accounts.txt"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("Accounts.txt"));
+        while (zeile != null)
+        {
+            zeile = br.readLine();
+            if (zeile != null) {
+                i++;
+                if(zeile.contains(checkstring))
+                {
+                    foundLine = i;
+                    success = true;
+                    System.out.println(foundLine);
+                    Reader.readString();
+                    return success;
+                }
+            }
+        }
+        if (foundLine != 0) {
+            for (i = 0; i < foundLine; i++) {
+                bw.write(String.format("%s%n", br.readLine()));
+            }
+            
+        }
+        br.readLine();
+
+        String l;
+        while (null != (l = br.readLine())) 
+        {
+            bw.write(String.format("%s%n", l));
+        }
+        
+        File oldFile = new File("Accounts.txt");
+        if (oldFile.delete())
+        tmp.renameTo(oldFile);
+        
+        br.close();
+        bw.close();
+
+        
+        return success;
+    }
+    catch(Exception e)
+    {
+        System.out.println("Sleep Interrupted!");
+        throw new RuntimeException("Exc while trying ...", e);
+    }
+    
+
+}
     
     public static void sleep (int duration)
     {

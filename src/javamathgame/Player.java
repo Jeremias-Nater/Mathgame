@@ -107,10 +107,14 @@ public class Player
     public boolean saveGame() // not working yet because it needs to replace existing Line
     {   
         boolean success;
-        if (Tools.findLine(this.nickname) == "") {
+        if (Tools.findLine(this.nickname) != "") {
+            Tools.removeline(nickname);
             Tools.writeFile(this.nickname+";"+this.exp+";");
             success = true;
         } else {
+            System.out.println("Der Benutzer existiert noch nicht.");
+            this.registerAccount(nickname);
+            System.out.println("der Benutzer " + nickname + " wurde Registriert.");
             success = false;
         }
         return success;
@@ -130,6 +134,7 @@ public class Player
             System.out.println(loadGame);
             Reader.readString();
         }
+        
         return success;
     }
     public boolean registerAccount(String inputnickname)  // Registers Account with 0 exp, lvl is calculated by getlvl
