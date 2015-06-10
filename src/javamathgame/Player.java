@@ -1,4 +1,6 @@
 package javamathgame;
+import java.io.*;
+
 /**
  * Version: 1.0
  * Autor: Nater Jeremias | Monegat Alessio | Würzer Daniel 
@@ -90,7 +92,25 @@ public class Player
                     
                     break;
                 case "3":
-                    
+                    try{
+                    FileReader fr = new FileReader("Accounts.txt");
+                    BufferedReader br = new BufferedReader(fr);
+                    System.out.println("Vorhandene Benutzer:");
+                    while(br.readLine() != null)
+                    {
+                        String test = br.readLine();
+                        String[] parts = test.split(";");
+                        String part1 = parts[0]; // Benutzername
+                        System.out.println(part1);
+                    }
+                    br.close();
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println("Kann Konten nicht ausgeben");
+                        throw new RuntimeException("Exc while trying ...", e);
+                    }
+                    Tools.clearterminal();
                     break;
                 default:
                     System.out.println("Ungültige Eingabe");
