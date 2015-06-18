@@ -1,4 +1,6 @@
 package javamathgame;
+import java.io.*;
+
 /**
  * Version: 1.0
  * Autor: Nater Jeremias | Monegat Alessio | Würzer Daniel 
@@ -90,7 +92,25 @@ public class Player
                     
                     break;
                 case "3":
-                    
+                    try{
+                    FileReader fr = new FileReader("Accounts.txt");
+                    BufferedReader br = new BufferedReader(fr);
+                    System.out.println("Vorhandene Benutzer:");
+                    while(br.readLine() != null)
+                    {
+                        String test = br.readLine();
+                        String[] parts = test.split(";");
+                        String part1 = parts[0]; // Benutzername
+                        System.out.println(part1);
+                    }
+                    br.close();
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println("Kann Konten nicht ausgeben");
+                        throw new RuntimeException("Exc while trying ...", e);
+                    }
+                    Tools.clearterminal();
                     break;
                 default:
                     System.out.println("Ungültige Eingabe");
@@ -107,10 +127,14 @@ public class Player
     public boolean saveGame() // not working yet because it needs to replace existing Line
     {   
         boolean success;
-        if (Tools.findLine(this.nickname) == "") {
+        if (Tools.findLine(this.nickname) != "") {
+            Tools.removeline(nickname);
             Tools.writeFile(this.nickname+";"+this.exp+";");
             success = true;
         } else {
+            System.out.println("Der Benutzer existiert noch nicht.");
+            this.registerAccount(nickname);
+            System.out.println("der Benutzer " + nickname + " wurde Registriert.");
             success = false;
         }
         return success;
@@ -127,9 +151,9 @@ public class Player
         }
         else
         {   
-            System.out.println(loadGame);
-            Reader.readString();
+            System.out.println("Spiel konnte nicht gefunden werden.");
         }
+        
         return success;
     }
     public boolean registerAccount(String inputnickname)  // Registers Account with 0 exp, lvl is calculated by getlvl

@@ -3,6 +3,7 @@ package javamathgame;
  * Version: 1.0
  * Autor: Nater Jeremias | Monegat Alessio | Würzer Daniel 
  */
+import java.io.*;
 public class JavaMathGame
 {
     public static void main(String[] args)

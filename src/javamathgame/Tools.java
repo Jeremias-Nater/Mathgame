@@ -34,8 +34,11 @@ public class Tools
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(content);
             bw.newLine();
+            
             bw.close();
+            fw.close();
             System.out.println("Spiel gespeichert, fahre fort...");
+            
             Tools.sleep(3000);
         }
         catch(Exception e)
@@ -63,10 +66,13 @@ public class Tools
                     if(zeile.contains(checkstring))
                     {
                         foundLine = zeile;
+                        br.close();
+                        fr.close();
                         return foundLine;
                     }
                 }
             }
+            fr.close();
             br.close();
             return foundLine;
         }
@@ -77,14 +83,47 @@ public class Tools
         }
     }
     
-    public static void sleep (int duration)
-    {
-        try
+    public static boolean removeline(String checkstring){
+        try 
         {
+            File inputFile = new File("Accounts.txt");
+            File tempFile = new File("Accounts_temp.txt");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            
+            String currentLine;
+
+            while((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with lineToRemove
+                String trimmedLine = currentLine.trim();
+                if(trimmedLine.contains(checkstring)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close(); 
+            reader.close();
+            
+            boolean successful = false;
+            if (inputFile.delete()) {
+                successful = tempFile.renameTo(inputFile);
+            } else {
+                System.out.println("File could not be deleted!");
+                Tools.sleep(3000);
+            }
+            
+            return successful;
+        }
+        catch(Exception e) {
+            System.out.println("Sleep Interrupted!");
+            throw new RuntimeException("Exc while trying ...", e);
+        }
+    }
+    
+    public static void sleep (int duration) {
+        try {
             Thread.sleep(duration);
         }
-        catch(Exception e)
-        {
+        catch(Exception e) {
             System.out.println("Sleep Interrupted!");
             throw new RuntimeException("Exc while trying ...", e);
         }
