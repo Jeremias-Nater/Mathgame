@@ -21,7 +21,6 @@ public class JavaMathGame
             System.out.println("Was wollen Sie tun?:");
             System.out.println("1.) Klassischen Spielmodus Sielen");
             System.out.println("2.) Survival Spielmodus Sielen");
-            System.out.println("3.) Timerace Spielmodus Sielen");
             System.out.println("");
             System.out.println("7.) Speichern");
             System.out.println("8.) Profil ansehen");
